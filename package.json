@@ -1,0 +1,12 @@
+{
+  "name": "md-link",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Chrome extension that copies the current page as a Markdown link.",
+  "scripts": {
+    "build": "node scripts/build.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
