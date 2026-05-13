@@ -6,8 +6,8 @@ Chrome extension that copies the current page as a Markdown link
 ## Features
 
 - Copy the active tab as `[title](url)` to the clipboard.
-- Default shortcut: <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd>
-  (macOS: <kbd>⌘</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd>).
+- Default shortcut: <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>L</kbd>
+  (macOS: <kbd>⌘</kbd>+<kbd>Shift</kbd>+<kbd>L</kbd>).
 - Shows a small "Copied!" popup for 1 second on success.
 - Shortcut can be changed from the options page (or directly at
   `chrome://extensions/shortcuts`).
@@ -19,7 +19,7 @@ Chrome extension that copies the current page as a Markdown link
 3. Click **Load unpacked** and select this directory.
 4. (Optional) Pin the extension to the toolbar.
 
-The default shortcut <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> is
+The default shortcut <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>L</kbd> is
 registered automatically. If it conflicts with another extension, open
 `chrome://extensions/shortcuts` and rebind it.
 
@@ -39,6 +39,19 @@ registered automatically. If it conflicts with another extension, open
 | `options.html` / `options.js` / `options.css` | Options page — shows current shortcut and links to `chrome://extensions/shortcuts` |
 | `icons/icon.svg` | Source icon |
 | `icons/icon{16,32,48,128}.png` | Toolbar / store icons |
+
+## Build
+
+The source files at the repository root can be loaded into Chrome directly
+(via **Load unpacked**). A `dist/` build is also provided for packaging.
+
+```sh
+npm run build      # build into dist/ (already cleans dist/ first)
+npm run clean      # remove dist/
+npm run rebuild    # clean + build (explicit alias)
+```
+
+Requires Node.js 20+.
 
 ## Regenerate icons
 

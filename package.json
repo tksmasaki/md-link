@@ -4,7 +4,9 @@
   "private": true,
   "description": "Chrome extension that copies the current page as a Markdown link.",
   "scripts": {
-    "build": "node scripts/build.mjs"
+    "clean": "node --eval \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"",
+    "build": "node scripts/build.mjs",
+    "rebuild": "npm run clean && npm run build"
   },
   "engines": {
     "node": ">=20"
