@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>MD Link – Options</title>
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <main>
+      <h1>MD Link</h1>
+      <p class="lead">
+        Copy the current page as a Markdown link
+        <code>[title](url)</code> with a keyboard shortcut.
+      </p>
+
+      <section>
+        <h2>Keyboard shortcut</h2>
+        <p>
+          Default:
+          <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd>
+          <span class="muted">(macOS: <kbd>⌘</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd>)</span>
+        </p>
+        <p>
+          Current binding:
+          <strong id="current-shortcut" class="muted">loading…</strong>
+        </p>
+        <p>
+          <button id="open-shortcuts" type="button">
+            Change shortcut…
+          </button>
+        </p>
+        <p class="hint">
+          Chrome only allows extensions to change their own shortcuts from the
+          built-in shortcuts page. Clicking the button above opens
+          <code>chrome://extensions/shortcuts</code> where you can rebind it.
+        </p>
+      </section>
+    </main>
+
+    <script src="options.js"></script>
+  </body>
+</html>
