@@ -14,10 +14,11 @@ Chrome extension that copies the current page as a Markdown link
 
 ## Install (unpacked)
 
-1. Open `chrome://extensions` in Chrome.
-2. Enable **Developer mode** (top right).
-3. Click **Load unpacked** and select this directory.
-4. (Optional) Pin the extension to the toolbar.
+1. Run `npm install` then `npm run build` to produce `dist/`.
+2. Open `chrome://extensions` in Chrome.
+3. Enable **Developer mode** (top right).
+4. Click **Load unpacked** and select the `dist/` directory.
+5. (Optional) Pin the extension to the toolbar.
 
 The default shortcut <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>L</kbd> is
 registered automatically. If it conflicts with another extension, open
@@ -42,13 +43,15 @@ registered automatically. If it conflicts with another extension, open
 
 ## Build
 
-The source files at the repository root can be loaded into Chrome directly
-(via **Load unpacked**). A `dist/` build is also provided for packaging.
+Bundled with [Vite](https://vitejs.dev/) and
+[@crxjs/vite-plugin](https://crxjs.dev/vite-plugin). Load the produced
+`dist/` directory into Chrome via **Load unpacked**.
 
 ```sh
-npm run build      # build into dist/ (already cleans dist/ first)
-npm run clean      # remove dist/
-npm run rebuild    # clean + build (explicit alias)
+npm install        # install Vite and @crxjs/vite-plugin
+npm run dev        # vite dev server with HMR for popup/options
+npm run build      # production build into dist/
+npm run preview    # preview the built dist/
 ```
 
 Requires Node.js 20+.

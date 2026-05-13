@@ -2,13 +2,18 @@
   "name": "md-link",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "description": "Chrome extension that copies the current page as a Markdown link.",
   "scripts": {
-    "clean": "node --eval \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"",
-    "build": "node scripts/build.mjs",
-    "rebuild": "npm run clean && npm run build"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "engines": {
     "node": ">=20"
+  },
+  "devDependencies": {
+    "@crxjs/vite-plugin": "^2.4.0",
+    "vite": "^8.0.12"
   }
 }
