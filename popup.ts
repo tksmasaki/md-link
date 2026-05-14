@@ -2,6 +2,7 @@ import { getElement } from "./dom";
 import { sanitizeTitle, formatUrl } from "./markdown";
 
 const AUTO_CLOSE_MS = 1000;
+const ERROR_CLOSE_MS = 3000;
 
 function showError(message: string): void {
   const status = getElement("status");
@@ -10,6 +11,17 @@ function showError(message: string): void {
   status.classList.add("error");
   icon.textContent = "!";
   msg.textContent = message;
+}
+
+function flagError(message: string): void {
+  // Show the error in the popup, raise a toolbar badge so the failure is
+  // still visible after the popup auto-closes, then close on the same
+  // timer as success — popups vanish on any outside click anyway, so a
+  // persistent in-popup error never gets read.
+  showError(message);
+  void chrome.action.setBadgeText({ text: "!" });
+  void chrome.action.setBadgeBackgroundColor({ color: "#c62828" });
+  setTimeout(() => window.close(), ERROR_CLOSE_MS);
 }
 
 
@@ -50,9 +62,12 @@ async function copyToClipboard(text: string): Promise<void> {
 }
 
 async function run(): Promise<void> {
+  // Clear any lingering error badge from a previous failed run.
+  void chrome.action.setBadgeText({ text: "" });
+
   const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
   if (!tab || !tab.url) {
-    showError("No active tab");
+    flagError("No active tab");
     return;
   }
 
@@ -62,8 +77,8 @@ async function run(): Promise<void> {
   try {
     await copyToClipboard(markdown);
   } catch (e) {
-    showError("Copy failed");
     console.error("[md-link] clipboard write failed:", e);
+    flagError("Copy failed");
     return;
   }
 
