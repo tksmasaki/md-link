@@ -1,9 +1,9 @@
 const AUTO_CLOSE_MS = 1000;
 
-function getElement<T extends HTMLElement>(id: string): T {
+function getElement(id: string): HTMLElement {
   const el = document.getElementById(id);
   if (!el) throw new Error(`[md-link] missing element #${id}`);
-  return el as T;
+  return el;
 }
 
 function showError(message: string): void {

@@ -5,10 +5,10 @@ function formatShortcut(shortcut: string | undefined): string {
   return shortcut;
 }
 
-function getElement<T extends HTMLElement>(id: string): T {
+function getElement(id: string): HTMLElement {
   const el = document.getElementById(id);
   if (!el) throw new Error(`[md-link] missing element #${id}`);
-  return el as T;
+  return el;
 }
 
 async function renderCurrentShortcut(): Promise<void> {
