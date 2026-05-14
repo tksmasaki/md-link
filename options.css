@@ -100,4 +100,11 @@ button:hover {
     background: #2e2e2e;
     color: #e0e0e0;
   }
+  button {
+    background: #1565c0;
+    border-color: #1565c0;
+  }
+  button:hover {
+    background: #0d47a1;
+  }
 }
