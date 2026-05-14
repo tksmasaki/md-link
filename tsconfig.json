@@ -16,5 +16,5 @@
     "resolveJsonModule": true,
     "noEmit": true
   },
-  "include": ["background.ts", "popup.ts", "options.ts", "vite.config.ts"]
+  "include": ["background.ts", "popup.ts", "options.ts", "dom.ts", "vite.config.ts"]
 }

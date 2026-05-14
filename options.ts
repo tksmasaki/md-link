@@ -1,10 +1,6 @@
-const COMMAND_NAME = "copy-md-link";
+import { getElement } from "./dom";
 
-function getElement(id: string): HTMLElement {
-  const el = document.getElementById(id);
-  if (!el) throw new Error(`[md-link] missing element #${id}`);
-  return el;
-}
+const COMMAND_NAME = "copy-md-link";
 
 async function renderCurrentShortcut(): Promise<void> {
   const el = getElement("current-shortcut");

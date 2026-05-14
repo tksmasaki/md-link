@@ -1,10 +1,6 @@
-const AUTO_CLOSE_MS = 1000;
+import { getElement } from "./dom";
 
-function getElement(id: string): HTMLElement {
-  const el = document.getElementById(id);
-  if (!el) throw new Error(`[md-link] missing element #${id}`);
-  return el;
-}
+const AUTO_CLOSE_MS = 1000;
 
 function showError(message: string): void {
   const status = getElement("status");
