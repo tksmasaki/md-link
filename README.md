@@ -35,9 +35,10 @@ registered automatically. If it conflicts with another extension, open
 | File | Purpose |
 | --- | --- |
 | `manifest.json` | Manifest V3 definition and command (shortcut) registration |
-| `background.js` | Service worker — receives the command and opens the popup |
-| `popup.html` / `popup.js` / `popup.css` | Reads the active tab, writes to clipboard, auto-closes after 1 s |
-| `options.html` / `options.js` / `options.css` | Options page — shows current shortcut and links to `chrome://extensions/shortcuts` |
+| `background.ts` | Service worker — receives the command and opens the popup |
+| `popup.html` / `popup.ts` / `popup.css` | Reads the active tab, writes to clipboard, auto-closes after 1 s |
+| `options.html` / `options.ts` / `options.css` | Options page — shows current shortcut and links to `chrome://extensions/shortcuts` |
+| `tsconfig.json` | TypeScript compiler config (typecheck only; Vite/CRXJS handle bundling) |
 | `icons/icon.svg` | Source icon |
 | `icons/icon{16,32,48,128}.png` | Toolbar / store icons |
 
