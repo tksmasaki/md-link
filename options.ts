@@ -1,10 +1,5 @@
 const COMMAND_NAME = "copy-md-link";
 
-function formatShortcut(shortcut: string | undefined): string {
-  if (!shortcut) return "(not set)";
-  return shortcut;
-}
-
 function getElement(id: string): HTMLElement {
   const el = document.getElementById(id);
   if (!el) throw new Error(`[md-link] missing element #${id}`);
@@ -16,7 +11,7 @@ async function renderCurrentShortcut(): Promise<void> {
   try {
     const commands = await chrome.commands.getAll();
     const cmd = commands.find((c) => c.name === COMMAND_NAME);
-    el.textContent = formatShortcut(cmd?.shortcut);
+    el.textContent = cmd?.shortcut || "(not set)";
     el.classList.toggle("muted", !cmd?.shortcut);
   } catch (e) {
     el.textContent = "(unavailable)";
