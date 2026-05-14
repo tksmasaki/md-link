@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "Copy the current page as a Markdown link: [title](url).",
   "minimum_chrome_version": "127",
-  "permissions": ["activeTab", "clipboardWrite"],
+  "permissions": ["activeTab"],
   "action": {
     "default_popup": "popup.html",
     "default_title": "Copy page as Markdown link",
