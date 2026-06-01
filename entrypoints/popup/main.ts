@@ -45,6 +45,14 @@ function copyViaExecCommand(text: string): boolean {
   }
 }
 
+// The popup document is not focused on repeated openPopup() invocations
+// via the keyboard shortcut, so navigator.clipboard.writeText() rejects
+// with a NotAllowedError. That is the expected trigger for the execCommand
+// fallback, so don't treat it as a warning-worthy failure.
+function isUnfocusedError(e: unknown): boolean {
+  return e instanceof DOMException && e.name === "NotAllowedError";
+}
+
 async function copyToClipboard(text: string): Promise<void> {
   // Ensure the popup document is focused; openPopup() does not always
   // hand focus back to the popup on repeated invocations.
@@ -53,7 +61,10 @@ async function copyToClipboard(text: string): Promise<void> {
     await navigator.clipboard.writeText(text);
     return;
   } catch (e) {
-    console.warn("[md-link] clipboard.writeText failed, falling back:", e);
+    if (!isUnfocusedError(e)) {
+      const detail = e instanceof Error ? `${e.name}: ${e.message}` : String(e);
+      console.warn("[md-link] clipboard.writeText failed, falling back:", detail);
+    }
   }
   if (!copyViaExecCommand(text)) {
     throw new Error("execCommand copy failed");
