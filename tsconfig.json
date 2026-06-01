@@ -1,20 +1,9 @@
 {
+  "extends": "./.wxt/tsconfig.json",
   "compilerOptions": {
-    "target": "ES2022",
-    "module": "ESNext",
-    "moduleResolution": "bundler",
-    "moduleDetection": "force",
-    "lib": ["ES2022", "DOM", "DOM.Iterable"],
-    "types": ["chrome", "node"],
-    "strict": true,
+    "types": ["chrome"],
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
-    "isolatedModules": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "resolveJsonModule": true,
-    "noEmit": true
-  },
-  "include": ["manifest.ts", "background.ts", "popup.ts", "options.ts", "dom.ts", "markdown.ts", "markdown.test.ts", "vite.config.ts"]
+    "noFallthroughCasesInSwitch": true
+  }
 }

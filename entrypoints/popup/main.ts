@@ -1,5 +1,5 @@
-import { getElement } from "./dom";
-import { sanitizeTitle, formatUrl } from "./markdown";
+import { getElement } from "../../lib/dom";
+import { sanitizeTitle, formatUrl } from "../../lib/markdown";
 
 const AUTO_CLOSE_MS = 1000;
 const ERROR_CLOSE_MS = 3000;
@@ -23,7 +23,6 @@ function flagError(message: string): void {
   void chrome.action.setBadgeBackgroundColor({ color: "#c62828" });
   setTimeout(() => window.close(), ERROR_CLOSE_MS);
 }
-
 
 function copyViaExecCommand(text: string): boolean {
   // Fallback used when navigator.clipboard.writeText() throws because the

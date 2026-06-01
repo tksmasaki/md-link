@@ -1,4 +1,4 @@
-import { getElement } from "./dom";
+import { getElement } from "../../lib/dom";
 
 const COMMAND_NAME = "copy-md-link";
 

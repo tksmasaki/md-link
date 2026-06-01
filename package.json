@@ -5,21 +5,20 @@
   "type": "module",
   "description": "Chrome extension that copies the current page as a Markdown link.",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "typecheck": "tsc --noEmit",
-    "test": "vitest run"
+    "dev": "wxt",
+    "build": "wxt build",
+    "zip": "wxt zip",
+    "typecheck": "wxt prepare && tsc --noEmit",
+    "test": "vitest run",
+    "postinstall": "wxt prepare"
   },
   "engines": {
     "node": ">=20"
   },
   "devDependencies": {
-    "@crxjs/vite-plugin": "^2.4.0",
     "@types/chrome": "^0.1.42",
-    "@types/node": "^25.7.0",
     "typescript": "^6.0.3",
-    "vite": "^8.0.12",
-    "vitest": "^4.1.6"
+    "vitest": "^4.1.6",
+    "wxt": "^0.20.26"
   }
 }
