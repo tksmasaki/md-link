@@ -4,6 +4,7 @@
   "private": true,
   "type": "module",
   "description": "Chrome extension that copies the current page as a Markdown link.",
+  "license": "MIT",
   "scripts": {
     "dev": "wxt",
     "build": "wxt build",

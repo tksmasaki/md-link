@@ -76,3 +76,7 @@ done
 
 (macOS' built-in `sips` is used; on other platforms use
 `rsvg-convert` or ImageMagick.)
+
+## License
+
+MIT
