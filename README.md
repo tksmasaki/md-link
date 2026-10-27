@@ -57,7 +57,7 @@ npm run typecheck  # type check
 npm test           # unit tests
 ```
 
-Requires Node.js 20+.
+Requires Node.js 26.12.1 or later. The development version is pinned in `.mise.toml`; run `mise install` before installing dependencies.
 
 ## Tech stack
 
